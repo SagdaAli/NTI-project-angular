@@ -1,0 +1,35 @@
+<section class="my-4 container">
+    <form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+        <div class="mb-3">
+            <label>name</label>
+            <input class="form-control" name="name" formControlName="name">
+            <div *ngIf="name?.invalid">
+                invalid
+            </div>
+        </div>
+        <div>
+            <label>email</label>
+            <input class="form-control" name="email" formControlName="email">
+        </div>
+        <div *ngIf="email?.invalid">
+            invalid
+        </div>
+        <div>
+            <label>passwrod</label>
+            <input class="form-control" name="passwrod" formControlName="password">
+        </div>
+        <div *ngIf="password?.invalid">
+            invalid
+        </div>
+        <div>
+            <label>phone</label>
+            <input class="form-control" name="phone" formControlName="phone">
+        </div>
+        <div *ngIf="phone?.invalid">
+            invalid
+        </div>
+        <div>
+            <button>register</button>
+        </div>
+    </form>
+</section>

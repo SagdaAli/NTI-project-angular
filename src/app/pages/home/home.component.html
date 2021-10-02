@@ -1,0 +1,19 @@
+<section class="container my-3">
+    <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let item of myData" >
+            <div routerLink="/allProducts/{{item._id}}">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    
+                  <h5 class="card-title">{{item.name}}</h5>
+                  <p class="card-text">{{item.price}}</p>
+                  <a href="#" class="btn btn-primary">add to cart</a>
+                </div>
+              </div>
+           
+    
+            </div>
+       
+    </div>
+    
+</section>

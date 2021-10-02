@@ -1,0 +1,50 @@
+<p>add new product </p>
+
+<section class="my-4 container">
+    <!-- <div class="alert alert-primary">
+        {{registerForm.value | json}}<br>
+        is Valid {{registerForm.valid}}<br>
+        is inValid {{registerForm.invalid}}<br>
+        submitted: {{registerForm.submitted}}<br>
+        touched: {{registerForm.touched}}
+    </div> -->
+    <form #addProductForm="ngForm" (ngSubmit)="onAdded(addProductForm)">
+        <div class="mb-3">
+            <label>name</label>
+            <input class="form-control" placeholder="name" name="name" 
+            required minlength="5" maxlength="15" 
+            [(ngModel)]="productData.name" #name="ngModel">
+            <div 
+            class="alert alert-danger" 
+            *ngIf="name.invalid && (name.touched||addProductForm.submitted||name.dirty)">
+                <p *ngIf="name.errors?.required">required</p>
+                <p *ngIf="name.errors?.minlength">min len</p>
+                <p *ngIf="name.errors?.maxlength">max len</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>description</label>
+            <input class="form-control" placeholder="description" name="description"  [(ngModel)]="productData.description" >
+           
+        </div>
+        <div class="mb-3">
+            <label>category</label>
+            <input class="form-control" placeholder="category" type="text" name="category" ngModel [(ngModel)]="productData.category">
+        </div>
+        <div class="mb-3">
+            <label>price</label>
+            <input class="form-control" placeholder="price" type="number" name="price" ngModel [(ngModel)]="productData.price" required #price='ngModel'>
+        </div>
+        <div 
+            class="alert alert-danger" 
+            *ngIf="price.invalid && (price.touched||addProductForm.submitted||price.dirty)">
+                <p *ngIf="name.errors?.required">required</p>
+                
+            </div>
+        <div class="mb-3">
+            <button class="btn btn-primary" >add product</button>
+            <!-- [disabled]="registerForm.invalid" -->
+        </div>
+        
+    </form>
+</section>

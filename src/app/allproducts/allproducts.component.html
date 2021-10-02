@@ -1,0 +1,55 @@
+<section class="container my-3">
+    <div class="row">
+        <!-- <div class="col-4" *ngFor="let product of products">
+            <div class="m-2 border border-2">
+               
+                <hr>
+              
+            </div>
+        </div> -->
+        <!-- <li *ngFor="let item of myData" >
+            {{item.name}}{{item.price}}
+        </li> -->
+    <!-- </div>
+    <div class="card" style="width: 18rem;" *ngFor="let item of myData" >
+        <div routerLink="/allProducts/{{item._id}}">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                
+              <h5 class="card-title">{{item.name}}</h5>
+              <p class="card-text">{{item.price}}</p>
+              <a href="#" class="btn btn-primary">add to cart</a>
+            </div>
+          </div>
+        -->
+        <button routerLink="/addProduct" class="btn btn-success col-2">add new product</button>
+        
+        <table class="table">
+            <thead>
+              <tr >
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+                <th scope="col">price</th>
+                <th scope="col">description</th>
+                <th scope="col">action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of myData;let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.description}}</td>
+                <td>
+                    <button routerLink="/allProducts/{{item._id}}" class="btn btn-primary mx-2">Show</button>
+                    <button routerLink="/editProduct/{{item._id}}" class="btn btn-warning mx-2">edit</button>
+                    <button (click)="delProduct(item._id, i)" class="btn btn-danger mx-2">delete</button>
+
+                </td>
+              </tr>
+             
+             
+            </tbody>
+          </table>
+    </div>   
+</section>

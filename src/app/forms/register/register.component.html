@@ -1,0 +1,66 @@
+<p>register works!</p>
+<section class="my-4 container">
+   <!-- <div class="alert alert-primary">
+    {{registerForm.value | json}}<br>
+    is Valid {{registerForm.valid}}<br>
+    is inValid {{registerForm.invalid}}<br>
+    submitted: {{registerForm.submitted}}<br>
+    touched: {{registerForm.touched}} 
+   </div> -->
+    <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+        <div class="mb-3">
+            <label>name</label>
+            <input class="form-control" placeholder="name" name="name" [(ngModel)]='userData.name' #name='ngModel' maxlength="30" minlength="4" required>
+        </div>
+        <div 
+            class="alert alert-danger" 
+            *ngIf="name.invalid && (name.touched||registerForm.submitted||name.dirty)">
+                <p *ngIf="name.errors?.required">required</p>
+                <p *ngIf="name.errors?.minlength">min len</p>
+                <p *ngIf="name.errors?.maxlength">max len</p>
+               
+            </div>
+        <div class="mb-3">
+            <label>email</label>
+            <input class="form-control" placeholder="email" name="email" [(ngModel)]='userData.email' #email='ngModel' required email>
+        </div>
+        <div 
+            class="alert alert-danger" 
+            *ngIf="email.invalid && (email.touched||registerForm.submitted||email.dirty)">
+                <p *ngIf="email.errors?.required">required</p>
+               
+                <p *ngIf="email.errors?.email">email</p>
+            </div>
+        <div class="mb-3">
+            <label>password</label>
+            <input class="form-control" placeholder="password" type="password" name="password" [(ngModel)]='userData.password' required #password='ngModel' minlength="6" maxlength="15">
+        </div>
+        <div 
+            class="alert alert-danger" 
+            *ngIf="password.invalid && (password.touched||registerForm.submitted||password.dirty)">
+                <p *ngIf="password.errors?.required">required</p>
+                <p *ngIf="password.errors?.minlength">min len</p>
+                <p *ngIf="password.errors?.maxlength">max len</p>
+                
+            </div>
+        <div class="mb-3">
+            <label>phone</label>
+            <input class="form-control" placeholder="phone" type="password" name="phone" [(ngModel)]='userData.phone' required #phone='ngModel' minlength="11">
+        </div>
+        <div 
+            class="alert alert-danger" 
+            *ngIf="phone.invalid && (phone.touched||registerForm.submitted||phone.dirty)">
+                <p *ngIf="phone.errors?.required">required</p>
+                <p *ngIf="phone.errors?.minlength">min len</p>
+            </div>
+        <!-- <div class="mb-3">
+            <label>address</label>
+            <input class="form-control" placeholder="address" type="text" name="addresses
+            " [(ngModel)]='userData.addresses'>
+        </div> -->
+        <div class="mb-3">
+            <button class="btn btn-primary">register</button>
+        </div>
+        
+    </form>
+</section>
